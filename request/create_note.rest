@@ -1,0 +1,14 @@
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+# Para enviar la informacion a una request, es directamente pasarle el objeto que le vamos a pasar
+{
+    "content": "esto es un nuevo objeto"
+}
+
+### diferentes ejemplos en un mismo rest con ###
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+# Para enviar la informacion a una request, es directamente pasarle el objeto que le vamos a pasar
+
+{
+}

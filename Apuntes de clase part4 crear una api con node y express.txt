@@ -1,0 +1,69 @@
+/* CREAREMOS UNA API CON NODEJS Y EXPRESS */
+/* API: APLICATION PROGRAMIN INTERFACE: las APIS suelen hacer es que permiten a traves de unos ENDPOINT recuperar recursos crear recursos, o recuperar informacion, obtener informacion guardar datos, etc. es una interfaz con la que se puede comunicar para hacer diferentes acciones*/
+
+/* NODEJS es un entorno de ejecucion de codigo js basado en el motor v8 de chrome es multiplataforma y se suele usar en el backend. node se puede ejecutar escribiendo node en la terminal y esto va a ejecutar un REPL que es READ EVALUATE PRINT A LOOP esto quiere decir que lee el comando que haces lo evalua y ensena el output y loop que lo vuelva a ejecutar. con el REPL es una forma interesante de usar rapidamente node.. con node -v podemos ver la version del node.*/
+
+/* NPM: esto viene al instalar NODEJS, NPM es node package management es un administrador de paquetes oficial
+
+NPM INIT: se ejecuta para iniciar un proyecto de node, para eso se puede hacer npm init y esto nos inicia en la carpeta de proyecto, al hacer npm init este hara unas preguntas, un truquito es hacer npm init -y y esto le dara yes a todas las preguntas.
+
+la licensia ayuda a cuando instalas un paquete a saber si tienes que tener en cuenta si es de codigo abierto si tienes que darle una mencion al autor.
+
+para ejecutar un fichero o archivo con node se usa en la terminal el comando node index.js y lo ejecuta
+
+lo mas interesante en estos proyectos es utilizar SCRIPTS, La forma correcta de trabajar es con los scripts que estan en package.json
+
+RECOMENDACION SEMANTIC VERSIONING LENS EN DEPENDENCIAS DE NPM: numeros y caret en NODE las versiones que son los 3 numeros que salen en node se llaman semantic versioning esto quiere decir que cada numero tiene semanticamente un significado ejemplo nodemon:2.0.7 el 7 digamos es la version que seria el patch o parche lo que hace es que si la version sube significa que se ha hecho algun tipo de cambio en el paquete o arreglar algun problema.
+
+Ahora si le anaden alguna nueva FEATURE: ejemplo detecta cambios y refresca el navegador automaticamente esto seria la minor que es el numero del medio. y finalmente el numero de la mayor que es el primer numero: que significa las versiones que cambian el contrato que tiene el paquete imagina que el nodemon antes se usaba asi nodemon index.js y ahora se usaria con un parametro asi nodemon --file index.js entonces el 2 ya seria un 3
+
+SIGNIFICADO DEL CARET: significa que hasta cierto punto la dependencia se va a actualizar automaticamente */
+
+/* LOCALHOST: es una forma en la que se llama a la propia maquina dentro del contexto del sistema de red que hay en casa o empresa, */
+
+/* FORMAS DE CARGAR MODULOS: const http = require("http"); <- esto es CommonJS es un tipo de modulos que creo nodejs al principio xq no existian los ECMASscript modules, nodejs necesita un sistema de modulos por eso creo CommonJS
+
+MODULES ECMASscript: import http from 'http' <- tambien es una forma de cargar modulos.
+
+las dos son similares solo cambia la sintaxis pero internamente no funcionan exactamente igual.
+
+modulo fs(file system): sirve para guardar archivos leer archibos
+modulo http: podemos hacer request, crear un servidor.*/
+
+/* NODEMON: es una herramienta que permite automaticamente resetear la aplicacion si detecta que hay algun tipo de cambio en el directorio. RECOMENDACION: todo lo que son dependencias del proyecto siempre intenta tenerlo en el mismo proyecto. no recomienda instalar dependencias en forma global
+Hay dos tipos de dependencias en los proyectos: 1- son dependencias que se necesitan el proyecto para funcionar digamos que son dependencias de produccion. y 2- Dependencias de desarollo que se utilizan mientras estamos desarrollando
+
+COMO EJECUTAR NODEMON: ./node_modules/.bin/nodemon nombre de archivo ejemplo index.js pero no se deberia ejecutar asi, se puede ejecutar desde el package.json y pasarlo por un comando llamado 'dev' que guardara esto 'nodemon index.js'*/
+
+/* EXPRESS.JS: Es un framework que permite crear servicios, como crear un servidor que va a poder tener diferentes rutas y asi manejar que rutas hacen que, y ademas tiene middlewares y asi simplifica muchisimo el codigo tanto el content-type
+
+res.end() envia los datos y termina la peticion
+*/
+
+/* MIDDLEWARE: es una funcion que intercepta cada request que esta pasando por la API, y se implementa ANTES de ejecutar estos ultimos. por ejemplo: app.use(express.json()) app.use((request,response, next) => {
+    console.log(request.method)
+    console.log(request.path)
+    console.log(request.body)
+    console.log('-----')
+    cuando se ejecuta esto? esto como esta puesto aqui, tenemos que leer la aplicacion de arriba a abajo, lo primero que ejecutar es la middleware, por lo tanto la  request pasara por app.use(express.json()) y luego la request pasara por aqui app.use((request,response, next) => y luego seguira bajando y dira vale la request que estoy haciendo encaja con esto? y asi va leyendo el codigo, si encaja en algo lo devuelve
+}) */
+
+/* CORS: cross origin resource sharing es compartir recursos entre diferentes origenes ejemplo: una api en el port 3001 y la aplicacion en el port 3000 por lo tanto son origenes distintos. Normalmente en origenes distintos no hay problema en funcionar en algunos recursos, normalmente cuando uno hace una API para que este abierta a todo el mundo para esto existe un middleware en express que se llama CORS es una dependencia de produccion  */
+
+/* Arquitectura API REST: esta Arquitectura al final nos permite crear apis que sean escalables */
+
+/* INSTALANDO ESLINT, sirve para evitar tener errores en el codigo, tambien los detecta y notifica cosas de code styling para instalarlo es npm install eslint -D
+
+eslint se inicia con ./node_modules/.bin/eslint --init
+
+eslint standard js configuracion en package.json "eslintConfig": {
+        "extends": "./node_modules/standard/eslintrc.json"
+    }
+
+*/
+
+/* ARCHIVO PROCFILE: para hacer un deploy en heroku, le tenemos que decir que tipo de recurso es el que queremos deployar ejemplo un servicio web seria web: y le tenemos que decir cual es el comando que tiene que ejecutar para inicializar el servicio.
+
+Para crear la aplicacion en heroku para eso hay que instalar heroku cli,
+
+en heroku el puerto no se le puede decir, porque heroku lo hace automaticamente, para esto el puerto lo utiliza de una variable de entorno que se llama port (process.env.PORT) y para crear la aplicacion de heroku seria asi en consola heroku create */
