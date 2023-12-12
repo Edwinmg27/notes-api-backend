@@ -110,7 +110,7 @@ app.use((request, response) => {
 
 // aqui le estamos diciendo al servidor que escuche el puerto 3001, por defecto cuando entramos a paginas web el puerto que se escucha es el puerto 80 si es en http y si es https por defecto es el 443 que por defecto es el ssl, el puerto 80 no se debe poner.
 // IMPORTANTE,al dejar de usar un serve, se debe detener. De lo contrario queda ocupando el puerto hasta que lo mates o reinicie la compu
-const PORT = express.env.PORT
+const PORT = express.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })

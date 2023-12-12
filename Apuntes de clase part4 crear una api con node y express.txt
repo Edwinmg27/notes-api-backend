@@ -66,4 +66,4 @@ eslint standard js configuracion en package.json "eslintConfig": {
 
 Para crear la aplicacion en heroku para eso hay que instalar heroku cli,
 
-en heroku el puerto no se le puede decir, porque heroku lo hace automaticamente, para esto el puerto lo utiliza de una variable de entorno que se llama port (process.env.PORT) y para crear la aplicacion de heroku seria asi en consola heroku create */
+en heroku el puerto no se le puede decir, porque heroku lo hace automaticamente, para esto el puerto lo utiliza de una variable de entorno que se llama port (process.env.PORT, process es el proceso, env es la variable de entorno es PORT) y para crear la aplicacion de heroku seria asi en consola heroku create */
